@@ -96,7 +96,7 @@ const Resume = () => {
               <div className="flex flex-col items-center mb-6">
                 <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-indigo-100 shadow-md mb-4 transition-all duration-500 hover:scale-105 hover:border-indigo-300">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                    src="https://images.unsplash.com/photo-1665504908551-16e7f6255adc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODB8fHByb2Zlc2lvbmFsJTIwcGljdHVyZSUyMG9mJTIwbWFuJTIwc3RhbmRpbmclMjBmcm9udCUyMG9mJTIwbGFwdG9wc3xlbnwwfHwwfHx8MA%3D%3D"
                     alt="Profile"
                     className="w-full h-full object-cover"
                   />
