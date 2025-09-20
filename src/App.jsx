@@ -7,11 +7,12 @@ import Resume from "./ui/navigations/Resume";
 import Contact from "./ui/navigations/contact";
 import Footer from "./ui/components/footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import OffCanvas from "./ui/components/test";
+import Header from "./ui/components/header";
+
 function App() {
   return (
     <BrowserRouter>
-      <OffCanvas />
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
