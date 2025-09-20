@@ -69,9 +69,9 @@ const Contact = () => {
               scrolling="no"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3410.079099887765!2d74.40271387446106!3d31.2739071743278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919af13c4a54c51%3A0x3b9c8fe24734b73b!2sRashid%20Latif%20Khan%20University%20(RLKU)!5e0!3m2!1sen!2s!4v1758304704283!5m2!1sen!2s"
               // style="border:0;"
-              allowfullscreen=""
+              allowFullScreen=""
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
+              referrerPolicy="no-referrer-when-downgrade"
               style={{
                 filter: "grayscale(0.8) contrast(1.2) opacity(0.5)",
               }}></iframe>

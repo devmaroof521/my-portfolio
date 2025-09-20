@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./ui/components/header";
+// import Header from "./ui/components/header";
 import Home from "./ui/navigations/home";
 import About from "./ui/navigations/About";
 import Services from "./ui/navigations/services";
@@ -7,10 +7,11 @@ import Resume from "./ui/navigations/Resume";
 import Contact from "./ui/navigations/contact";
 import Footer from "./ui/components/footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import OffCanvas from "./ui/components/test";
 function App() {
   return (
     <BrowserRouter>
-      <Header />
+      <OffCanvas />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

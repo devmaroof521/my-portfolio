@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [loaded, setLoaded] = useState(false);
@@ -38,19 +39,22 @@ const Home = () => {
             and functional.
           </p>
           <div className="flex justify-center space-x-4">
-            <button className="inline-flex items-center text-white bg-indigo-500 border-0 py-3 px-8 focus:outline-none hover:bg-indigo-600 rounded-lg text-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
-              View My Work
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1"
-                viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </button>
+            <Link to="/resume">
+              <button className="inline-flex items-center text-white bg-indigo-500 border-0 py-3 px-8 focus:outline-none hover:bg-indigo-600 rounded-lg text-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+                View My Work
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                  viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </button>
+            </Link>
+
             <button className="inline-flex items-center text-gray-700 bg-gray-100 border-0 py-3 px-8 focus:outline-none hover:bg-gray-200 rounded-lg text-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
               Download CV
               <svg

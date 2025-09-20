@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const [loaded, setLoaded] = useState(false);
@@ -86,6 +87,7 @@ const Services = () => {
         "Third-party API Integration",
         "Maintenance & Support",
       ],
+      popular: true,
     },
     {
       title: "UI/UX Design",
@@ -155,20 +157,29 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Service Details */}
+        {/* Service Details - Show only the active service */}
         <div
-          className={`flex flex-wrap -m-4 transition-all duration-700 delay-200 ${
+          className={`flex justify-center transition-all duration-700 delay-200 ${
             loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}>
-          <div className="p-4 xl:w-1/4 md:w-1/2 w-full">
+          <div className="p-4 w-full max-w-4xl">
             <div className="h-full p-8 rounded-xl bg-white shadow-lg flex flex-col relative overflow-hidden transition-all duration-300 hover:shadow-xl">
-              <div className="text-indigo-500 mb-6">{services[0].icon}</div>
+              {services[activeService].popular && (
+                <span className="bg-indigo-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl-lg">
+                  POPULAR
+                </span>
+              )}
+              <div className="text-indigo-500 mb-6">
+                {services[activeService].icon}
+              </div>
               <h2 className="text-2xl font-bold title-font mb-4 text-gray-900">
-                {services[0].title}
+                {services[activeService].title}
               </h2>
-              <p className="text-gray-600 mb-6">{services[0].description}</p>
+              <p className="text-gray-600 mb-6">
+                {services[activeService].description}
+              </p>
               <ul className="space-y-3 mb-8 flex-grow">
-                {services[0].features.map((feature, index) => (
+                {services[activeService].features.map((feature, index) => (
                   <li
                     key={index}
                     className="flex items-center transition-all duration-300 hover:translate-x-1">
@@ -188,154 +199,23 @@ const Services = () => {
                   </li>
                 ))}
               </ul>
-              <button className="flex items-center mt-auto text-white bg-indigo-500 border-0 py-3 px-6 w-full focus:outline-none hover:bg-indigo-600 rounded-lg transition-all duration-300 transform hover:scale-105">
-                Learn More
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-4 h-4 ml-auto"
-                  viewBox="0 0 24 24">
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <div className="p-4 xl:w-1/4 md:w-1/2 w-full">
-            <div className="h-full p-8 rounded-xl bg-white shadow-lg flex flex-col relative overflow-hidden transition-all duration-300 hover:shadow-xl">
-              <div className="text-indigo-500 mb-6">{services[1].icon}</div>
-              <h2 className="text-2xl font-bold title-font mb-4 text-gray-900">
-                {services[1].title}
-              </h2>
-              <p className="text-gray-600 mb-6">{services[1].description}</p>
-              <ul className="space-y-3 mb-8 flex-grow">
-                {services[1].features.map((feature, index) => (
-                  <li
-                    key={index}
-                    className="flex items-center transition-all duration-300 hover:translate-x-1">
-                    <span className="w-5 h-5 mr-2 inline-flex items-center justify-center bg-green-100 text-green-500 rounded-full flex-shrink-0">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2.5"
-                        className="w-3 h-3"
-                        viewBox="0 0 24 24">
-                        <path d="M20 6L9 17l-5-5"></path>
-                      </svg>
-                    </span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <button className="flex items-center mt-auto text-white bg-indigo-500 border-0 py-3 px-6 w-full focus:outline-none hover:bg-indigo-600 rounded-lg transition-all duration-300 transform hover:scale-105">
-                Learn More
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-4 h-4 ml-auto"
-                  viewBox="0 0 24 24">
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <div className="p-4 xl:w-1/4 md:w-1/2 w-full">
-            <div className="h-full p-8 rounded-xl bg-white shadow-lg flex flex-col relative overflow-hidden transition-all duration-300 hover:shadow-xl">
-              <span className="bg-indigo-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl-lg">
-                POPULAR
-              </span>
-              <div className="text-indigo-500 mb-6">{services[2].icon}</div>
-              <h2 className="text-2xl font-bold title-font mb-4 text-gray-900">
-                {services[2].title}
-              </h2>
-              <p className="text-gray-600 mb-6">{services[2].description}</p>
-              <ul className="space-y-3 mb-8 flex-grow">
-                {services[2].features.map((feature, index) => (
-                  <li
-                    key={index}
-                    className="flex items-center transition-all duration-300 hover:translate-x-1">
-                    <span className="w-5 h-5 mr-2 inline-flex items-center justify-center bg-green-100 text-green-500 rounded-full flex-shrink-0">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2.5"
-                        className="w-3 h-3"
-                        viewBox="0 0 24 24">
-                        <path d="M20 6L9 17l-5-5"></path>
-                      </svg>
-                    </span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <button className="flex items-center mt-auto text-white bg-indigo-600 border-0 py-3 px-6 w-full focus:outline-none hover:bg-indigo-700 rounded-lg transition-all duration-300 transform hover:scale-105">
-                Get Started
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-4 h-4 ml-auto"
-                  viewBox="0 0 24 24">
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <div className="p-4 xl:w-1/4 md:w-1/2 w-full">
-            <div className="h-full p-8 rounded-xl bg-white shadow-lg flex flex-col relative overflow-hidden transition-all duration-300 hover:shadow-xl">
-              <div className="text-indigo-500 mb-6">{services[3].icon}</div>
-              <h2 className="text-2xl font-bold title-font mb-4 text-gray-900">
-                {services[3].title}
-              </h2>
-              <p className="text-gray-600 mb-6">{services[3].description}</p>
-              <ul className="space-y-3 mb-8 flex-grow">
-                {services[3].features.map((feature, index) => (
-                  <li
-                    key={index}
-                    className="flex items-center transition-all duration-300 hover:translate-x-1">
-                    <span className="w-5 h-5 mr-2 inline-flex items-center justify-center bg-green-100 text-green-500 rounded-full flex-shrink-0">
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2.5"
-                        className="w-3 h-3"
-                        viewBox="0 0 24 24">
-                        <path d="M20 6L9 17l-5-5"></path>
-                      </svg>
-                    </span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <button className="flex items-center mt-auto text-white bg-indigo-500 border-0 py-3 px-6 w-full focus:outline-none hover:bg-indigo-600 rounded-lg transition-all duration-300 transform hover:scale-105">
-                Learn More
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  className="w-4 h-4 ml-auto"
-                  viewBox="0 0 24 24">
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </button>
+              <div className="mt-6">
+                <Link to="/about">
+                  <button className="flex items-center mt-auto text-white bg-indigo-500 border-0 py-3 px-6 w-full focus:outline-none hover:bg-indigo-600 rounded-lg transition-all duration-300 transform hover:scale-105">
+                    Learn More
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      className="w-4 h-4 ml-auto"
+                      viewBox="0 0 24 24">
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
